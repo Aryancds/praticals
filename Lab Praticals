@@ -1,0 +1,172 @@
+n a m e : Aryan ketan Patel
+ c l a s s : b . s c . i t
+ s e m e s t e r - i
+ d i v - A
+ s u b j e c t : d b m s p r a c t i c a l a s s i g n m e n t 04
+d a t e o f p r a c t i c a l a s s i g n m e n t : 30/11/21
+
+
+CREATE TABLE it_books
+(book_code varchar2(3) PRIMARY KEY,
+book_title varchar2(20),
+book_price number(10,2),
+publisher varchar2(20),
+edition varchar2(10));
+
+CREATE TABLE it_author
+(author_id varchar2(3) PRIMARY KEY,
+author_name varchar2(20),
+book_id varchar2(3));
+
+INSERT INTO it_books
+VALUES('a1','DBMS',850,'pbp','second');
+INSERT INTO it_books
+VALUES('a2','cosd',1000,'vikash','second');
+INSERT INTO it_books
+VALUES('a3','SPM',1500,'ibm','second');
+INSERT INTO it_books
+VALUES('a4','hardware',750,'pbp','second');
+INSERT INTO it_books
+VALUES('a5','CCNA',2000,'ibm','second');
+
+INSERT INTO it_author
+VALUES(01,'bhagyesh','a1');
+INSERT INTO it_author
+VALUES(02,'mayur','a2');
+INSERT INTO it_author
+VALUES(03,'aaryan','a3');
+INSERT INTO it_author
+VALUES(04,'aryan patel','a4');
+INSERT INTO it_author
+VALUES(05,'divenshu','a5');
+INSERT INTO it_author
+VALUES(06,'rozy','a6');
+INSERT INTO it_author
+VALUES(07,'jeni','a7');
+INSERT INTO it_author
+VALUES(08,'dhrashti','a8');
+INSERT INTO it_author
+VALUES(09,'yashvi','a9');
+INSERT INTO it_author
+VALUES(10,'mansi','a10');
+
+q1
+ALTER TALE it_books
+ADD column numofpages number(3);
+
+q2
+update it_books set numofpages=350 where book_code=1;
+update it_books set numofpages=500 where book_code=2;
+update it_books set numofpages=550 where book_code=3;
+update it_books set numofpages=1000 where book_code=4;
+update it_books set numofpages=680 where book_code=5;
+
+q3
+ALTER TABLE it_author
+MODIFY author_name varchar2(50);
+
+q4
+ALTER TABLE it_books
+DROP COLUMN edition;
+
+q6
+SELECT * FROM it_books
+
+
+
+q7
+SELECT * FROM it_author;
+
+
+
+
+q8
+SELECT * FROM it_books
+WHERE book_code(1,2,3,4);
+
+q9
+SELECT author_id,author_name from it_author where author_name like'_a%';
+
+
+q10
+update it_books set book_price=850 where publisher='vikash' and page>600;
+
+
+q11
+DROP author_code set it_author where author_name like'_2%';
+
+
+
+
+
+
+
+
+n a m e : Aryan Ketan Patel
+ c l a s s : b . s c . i t
+ s e m e s t e r - i
+ d i v - A
+ s u b j e c t : d b m s p r a c t i c a l a s s i g n m e n t 
+d a t e o f p r a c t i c a l a s s i g n m e n t : 03
+
+
+create table it_comp (comp_code varchar(3), comp_name varchar2(20)); 
+
+create table it_product (prod_code varchar(3), prod_name varchar2(20), prod_type varchar2(30), quantity number(10,2), Rate decimal(10,2),
+comp_code varchar2(3));
+
+1 . I N S E R T A T L E A S T 5 R E C O R D S I N c o m p a n y t a b le a n d 1 0
+r e c o r d s in p r o d u c t t a b le
+
+>>
+
+
+insert into it_comp values (101,'Nestle');
+insert into it_comp values (102,'Parle');
+insert into it_comp values (103,'Acer');
+insert into it_comp values (104,'Lenovo');
+insert into it_comp values (105,'Dell');
+
+
+
+insert into it_product values ('p01','Monaco','Biscuit',50,10,102);
+insert into it_product values ('p02','CPU','Electronics',10,12000,105);
+insert into it_product values ('p03','Keyboard','Electronics',5,1000,103);
+insert into it_product values ('p04','Mouse','Electronics',20,500,105);
+insert into it_product values ('p05','Coffee','Grocery',20,56,101);
+
+
+
+
+2 . D is p la y o n ly p r o d c o d e a n d p r o d n a m e o f p r o d u c t t a b le
+
+>>
+select prod_code, prod_name from it_product;
+
+
+
+3 . D is p la y a ll t h e r e c o r d s o f c o m p a n y n a m e w h o s e c o m p a n y c o d e
+is b e t w e e n ‘101 ’ t o ‘103 ’
+
+>>
+select * from it_comp where comp_code between 101 and 103;
+
+
+
+
+4 . D is p la y p r o d u c t n a m e w h o s e q u a n t it y is le s s t h e n 5 0
+
+>>
+select prod_name from it_product where quantity<50;
+
+
+
+
+5 . D is p la y p r o d u c t n a m e , q u a n t it y a n d r a t e w h o s e p r o d u c t n a m e
+is s t a r t e d w it h ‘C ’ c h a r a c t e r a n d r a t e is m o r e t h a n 5 0 0 0
+
+
+>>
+select prod_name, quantity, rate from it_product where prod_name like ('C%') and rate>5000;
+
+
